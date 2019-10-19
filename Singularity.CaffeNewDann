@@ -109,45 +109,7 @@ A portable Ubuntu 16.04 environment with pre-built caffe.
       rm -rf /var/lib/apt/lists/*
       
        # Update to the latest pip (newer than repo)
-    pip install --no-cache-dir --upgrade pip
-    pip install -U setuptools
-    # Install other needed packages
-    pip install --no-cache-dir --upgrade \
-      chardet \
-      Cheetah \
-      Cython \
-      deepdish \
-      future \
-      h5py \
-      ipykernel \
-      jupyter \
-      leveldb \
-      lmdb \
-      Mako \
-      matplotlib \
-      ndg-httpsclient \
-      nose \
-      numpy \
-      pandas \
-      path.py \
-      Pillow \
-      pyasn1 \
-      pygments \
-      pyopenssl \
-      python-dateutil \
-      python-gflags \
-      pyyaml \
-      requests \
-      scipy \
-      scikit-image \
-      scikit-learn \
-      six \
-      sqlalchemy \
-      sympy \
-      urllib3 \
-      virtualenv \
-      wheel \
-      zmq
+    pip install --upgrade pip
       
  # Caffe master branch
     #
