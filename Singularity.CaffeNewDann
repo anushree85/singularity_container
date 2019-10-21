@@ -117,14 +117,14 @@ A portable Ubuntu 16.04 environment with pre-built caffe.
     python3 -m pip install --no-cache-dir matplotlib seaborn scikit-image
       
  # Caffe master branch
-    #
+   ##### INSTALL CAFFE #####
+
     ( mkdir -p /usr/local/caffe/source && \
         git clone -b caffeNEW_DANN --depth 1 https://github.com/anushree85/caffe.git /usr/local/caffe/source && \
         cd /usr/local/caffe/source && \
         cat python/requirements.txt | xargs -n1 pip install && \
         mkdir build && cd build && \
-        git clone https://github.com/NVIDIA/nccl.git && cd nccl && make -j install && cd .. && rm -rf nccl && \
-        cmake -DCMAKE_INSTALL_PREFIX=/usr/local/caffe -DUSE_CUDNN=1 -DUSE_NCCL=1 -DCUDA_ARCH_NAME="Manual" -DCUDA_ARCH_BIN="30 35 50 60 61" .. && \
+        cmake -DCMAKE_INSTALL_PREFIX=/usr/local/caffe -DUSE_CUDNN=1 -DCUDA_ARCH_NAME="Manual" -DCUDA_ARCH_BIN="30 35 50 60 61" .. && \
         make all && \
         make install \
     )
