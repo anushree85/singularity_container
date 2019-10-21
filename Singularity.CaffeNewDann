@@ -127,12 +127,10 @@ A portable Ubuntu 16.04 environment with pre-built caffe.
     cd caffe/
 
     # install python packages for Caffe
-    pip install --upgrade pip
-    # during build from recipe file pip install ipython>=3.0.0 try to install
-    # sed is added to force ipython < 6
-    for req in $(cat python/requirements.txt) pydot
-	do
-        pip install $req
+    #pip install --upgrade pip
+    for req in $(cat requirements.txt)
+      do 
+         pip3 install --no-cache-dir $req
     done
 
     # make Caffe
