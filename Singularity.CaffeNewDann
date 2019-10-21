@@ -119,14 +119,29 @@ A portable Ubuntu 16.04 environment with pre-built caffe.
  # Caffe master branch
    ##### INSTALL CAFFE #####
 
-    ( mkdir -p /usr/local/caffe/source && \
-        git clone -b caffeNEW_DANN --depth 1 https://github.com/anushree85/caffe.git /usr/local/caffe/source && \
-        cd /usr/local/caffe/source && \
-        cat python/requirements.txt | xargs -n1 pip install && \
-        mkdir build && cd build && \
-        cmake -DCMAKE_INSTALL_PREFIX=/usr/local/caffe -DUSE_CUDNN=1 -DCUDA_ARCH_NAME="Manual" -DCUDA_ARCH_BIN="30 35 50 60 61" .. && \
-        make all && \
-        make install \
-    )
+     cd /opt/
+    # to avoid "Problem with the SSL CA cert (path? access rights?)"
+    update-ca-certificates
+    git clone -b caffeNEW_DANN --depth 1 https://github.com/anushree85/caffe.git
+    cd caffe/
 
-    /sbin/ldconfig
+    # install python packages for Caffe
+    pip install --upgrade pip
+    # during build from recipe file pip install ipython>=3.0.0 try to install
+    # sed is added to force ipython < 6
+    for req in $(cat python/requirements.txt) pydot
+	do
+        pip install $req
+    done
+
+    # make Caffe
+    mkdir build
+    cd build/
+    #cmake -DUSE_CUDNN=1 -DUSE_NCCL=1 ..
+    cmake -DUSE_CUDNN=1 ..
+    make
+    make pycaffe
+   
+    %runscript
+    exec /opt/caffe/build/tools/caffe
+  #  /sbin/ldconfig
