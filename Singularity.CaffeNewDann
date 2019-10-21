@@ -128,10 +128,12 @@ A portable Ubuntu 16.04 environment with pre-built caffe.
 
     # install python packages for Caffe
     #pip install --upgrade pip
+    cd python
     for req in $(cat requirements.txt)
       do 
          pip3 install --no-cache-dir $req
     done
+    cd ..
 
     # make Caffe
     mkdir build
