@@ -134,7 +134,7 @@ A portable Ubuntu 16.04 environment with pre-built caffe.
          python3 -m pip install --no-cache-dir $req
     done
     cd ..
-
+    export PYTHONPATH=/opt/caffe/build/tools/caffe/python
     # make Caffe
     mkdir build
     cd build/
