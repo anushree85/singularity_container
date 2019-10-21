@@ -91,12 +91,12 @@ A portable Ubuntu 16.04 environment with pre-built caffe.
       pkg-config \
       protobuf-compiler \
       graphviz \
-      python3-dev \
-      python3-pip \
-      python3-pydot \
-      python3-setuptools \
-      python3-tk \
-      python3-numpy \
+      python-dev \
+      python-pip \
+      python-pydot \
+      python-setuptools \
+      python-tk \
+      python-numpy \
       rsync \
       software-properties-common \
       time \
@@ -112,10 +112,10 @@ A portable Ubuntu 16.04 environment with pre-built caffe.
       
        # Update to the latest pip (newer than repo)
     # pip
-    python3 -m pip install --upgrade setuptools pip
-    python3 -m pip install --no-cache-dir --upgrade tf-nightly-gpu tf-agents-nightly tfp-nightly tensorflow-datasets
-    python3 -m pip install --no-cache-dir matplotlib seaborn scikit-image
-    python3 -m pip install numpy
+    python -m pip install --upgrade setuptools pip
+    python -m pip install --no-cache-dir --upgrade tf-nightly-gpu tf-agents-nightly tfp-nightly tensorflow-datasets
+    python -m pip install --no-cache-dir matplotlib seaborn scikit-image
+    python -m pip install numpy
       
  # Caffe master branch
    ##### INSTALL CAFFE #####
@@ -131,7 +131,7 @@ A portable Ubuntu 16.04 environment with pre-built caffe.
     cd python
     for req in $(cat requirements.txt)
       do 
-         python3 -m pip install --no-cache-dir $req
+         python -m pip install --no-cache-dir $req
     done
     cd ..
     export PYTHONPATH=/opt/caffe/build/tools/caffe/python
